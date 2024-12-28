@@ -19,4 +19,12 @@ The following conversions must be implemented:
 |%X|hexadecimal number in uppercase|
 |%%|% - is the way to escape the % char|
 
-The original printf buffer management doesn't have to be implemented. 
+The original printf buffer management doesn't have to be implemented.
+
+Info on...:
+- Printf buffer management:
+	- https://www.gnu.org/software/libc/manual/html_node/Buffering-Concepts.html
+	- https://es.stackoverflow.com/questions/287146/no-entiendo-c%C3%B3mo-funciona-el-buffer-de-printf
+
+- Variadic functions:
+	- https://www.gnu.org/software/libc/manual/html_node/Variadic-Functions.html
