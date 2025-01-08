@@ -3,7 +3,7 @@
 
 int main()
 {
-	ft_printf("hola");
+	ft_printf("hola mundo %c % y\n", '-');
 	return 0;
 }
 

@@ -6,15 +6,18 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 20:57:05 by isastre-          #+#    #+#             */
-/*   Updated: 2024/12/29 14:38:54 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:09:48 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h> // TODO borrar
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 int	ft_printf(char const *str, ...);
 

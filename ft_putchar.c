@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:22:49 by isastre-          #+#    #+#             */
-/*   Updated: 2025/01/08 11:37:24 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/01/08 12:10:32 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_putchar(char c)
 {
-	(void) c;
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }
