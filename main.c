@@ -4,6 +4,7 @@
 void test_char();
 void test_str();
 void test_putnbr();
+void test_putunbr();
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
 	test_char();
 	test_str();
 	test_putnbr();
+	test_putunbr();
 
 	return 0;
 }
@@ -24,7 +26,7 @@ void test_char()
 	int ret_og;
 	int ret_copy;
 	int test_number = 0;
-	printf("\n----- TEST CHAR -----\n");
+	printf("\n----- TEST CHAR (%%c) -----\n");
 
 	ret_og = printf("%c\n", 'a');
 	ret_copy = ft_printf("%c\n", 'a');
@@ -77,7 +79,7 @@ void test_char()
 	test_number++;
 	
 	
-	printf("\n----- END TEST CHAR -----\n");
+	printf("\n----- END TEST CHAR (%%c) -----\n");
 }
 
 void test_str()
@@ -86,7 +88,7 @@ void test_str()
 	int ret_copy;
 	int test_number = 0;
 	char *str;
-	printf("\n----- TEST STR -----\n");
+	printf("\n----- TEST STR (%%s) -----\n");
 
 	// normal strs
 	ret_og = printf("%s\n", "'a'");
@@ -141,7 +143,7 @@ void test_str()
 		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
 	test_number++;
 	
-	printf("\n----- END TEST STR -----\n");
+	printf("\n----- END TEST STR (%%s) -----\n");
 }
 
 void test_putnbr()
@@ -243,7 +245,7 @@ void test_putnbr()
 	test_number++;
 
 /**
- * No deja compilar con las flags
+//  * No deja compilar con las flags
 	// overflow max int
 	nbr = 2147483648;
 	ret_og = printf("%d\n", nbr);
@@ -273,5 +275,81 @@ void test_putnbr()
 	test_number++;
  */
 	
-	printf("\n----- END TEST PUTNBR -----\n");
+	printf("\n----- END TEST PUTNBR (%%d %%i) -----\n");
+}
+
+void test_putunbr()
+{
+	int ret_og;
+	int ret_copy;
+	int test_number = 0;
+	unsigned int nbr;
+	printf("\n----- TEST PUTUNBR (%%u) -----\n");
+
+	// positive numbers %d
+	ret_og = printf("%u\n", 0);
+	ret_copy = ft_printf("%u\n", 0);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+	nbr = 42;
+	ret_og = printf("%u\n", nbr);
+	ret_copy = ft_printf("%u\n", nbr);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// negative numbers
+	nbr = -42;
+	ret_og = printf("%u\n", nbr);
+	ret_copy = ft_printf("%u\n", nbr);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+	// multiple numbers
+	ret_og = printf("%u %u %u\n", 1, 2095, 3456789);
+	ret_copy = ft_printf("%u %u %u\n", 1, 2095, 3456789);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+	// max unsigned int
+	nbr = 4294967295;
+	ret_og = printf("%u\n", nbr);
+	ret_copy = ft_printf("%u\n", nbr);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// min int
+	nbr = -2147483648;
+	ret_og = printf("%u\n", nbr);
+	ret_copy = ft_printf("%u\n", nbr);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+/**
+//  * No deja compilar con las flags
+	// overflow max unsigned int
+	nbr = 4294967296;
+	ret_og = printf("%u\n", nbr);
+	ret_copy = ft_printf("%u\n", nbr);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// overflow min int
+	nbr = -2147483649;
+	ret_og = printf("%u\n", nbr);
+	ret_copy = ft_printf("%u\n", nbr);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+ */
+	
+	printf("\n----- END TEST PUTUNBR (%%u) -----\n");
 }
