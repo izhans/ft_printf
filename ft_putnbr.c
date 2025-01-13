@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:39:38 by isastre-          #+#    #+#             */
-/*   Updated: 2025/01/08 11:40:59 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:27:49 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	ft_putnbr(int nbr)
 {
-	(void) nbr;
-	return (0);
+	return (ft_putnbr_base(nbr, "0123456789"));
 }
