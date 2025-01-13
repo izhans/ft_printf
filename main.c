@@ -17,30 +17,61 @@ int main()
 
 void test_char()
 {
+	int ret_og;
+	int ret_copy;
+	int test_number = 0;
 	printf("\n----- TEST CHAR -----\n");
 
-	printf("%c\n", 'a');
-	ft_printf("%c\n", 'a');
+	ret_og = printf("%c\n", 'a');
+	ret_copy = ft_printf("%c\n", 'a');
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
 
 	char c = 'b';
-	printf("%c\n", c);
-	ft_printf("%c\n", c);
+	ret_og = printf("%c\n", c);
+	ret_copy = ft_printf("%c\n", c);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
 
 	c = '\0';
-	printf("null char <%c>\n", c);
-	ft_printf("null char <%c>\n", c);
-
-	printf("%c%c%c%c\n", 'd', 'e', '8', '\n');
-	ft_printf("%c%c%c%c\n", 'd', 'e', '8', '\n');
+	ret_og = printf("null char <%c>\n", c);
+	ret_copy = ft_printf("null char <%c>\n", c);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
 	
-	printf("%c\n", 94); // ^
-	ft_printf("%c\n", 94);
-	
-	printf("DEL <%c>\n", 127); // DEL
-	ft_printf("DEL <%c>\n", 127); // DEL
 
-	printf("extended char <%c>\n", 128); // idk
-	ft_printf("extended char <%c>\n", 128); // idk
+	ret_og = printf("%c%c%c%c\n", 'd', 'e', '8', '\n');
+	ret_copy = ft_printf("%c%c%c%c\n", 'd', 'e', '8', '\n');
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	
+	ret_og = printf("%c\n", 94); // ^
+	ret_copy = ft_printf("%c\n", 94);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	
+	ret_og = printf("DEL <%c>\n", 127); // DEL
+	ret_copy = ft_printf("DEL <%c>\n", 127); // DEL
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+
+	ret_og = printf("extended char <%c>\n", 128); // idk
+	ret_copy = ft_printf("extended char <%c>\n", 128); // idk
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
 	
 	printf("\n----- END TEST CHAR -----\n");
 }

@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 20:56:57 by isastre-          #+#    #+#             */
-/*   Updated: 2025/01/08 12:27:09 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/01/13 16:02:35 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	ft_printf(char const *str, ...)
 				str++; // si ha imprimido, avanza en uno el puntero para no imprimir el format specifier
 			else
 				has_print = ft_putchar('%'); // si el formato no existe imprime el %, igual que printf original
-			printed_chars += has_print;
 		}
 		else
-			ft_putchar(*str);
+			has_print = ft_putchar(*str);
+		printed_chars += has_print;
 		str++;
 	}
 	va_end(args);
@@ -45,7 +45,7 @@ int	ft_printf(char const *str, ...)
 
 static int	ft_print_format(char format, va_list args)
 {
-	printf("format is <%c>", format); // TODO borrar
+	// printf("format is <%c>", format); // TODO borrar
 	if (format == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	if (format == 's')
