@@ -6,7 +6,7 @@
 /*   By: isastre- <isastre-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:38:03 by isastre-          #+#    #+#             */
-/*   Updated: 2025/01/08 11:38:50 by isastre-         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:21:31 by isastre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 
 int	ft_putstr(char *str)
 {
-	(void) str;
-	return (0);
+	int	i;
+
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }

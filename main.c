@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void test_char();
+void test_str();
 
 int main()
 {
@@ -11,6 +12,7 @@ int main()
 	// ft_printf("hola mundo %c % y %s\n", '-', NULL);
 
 	test_char();
+	test_str();
 
 	return 0;
 }
@@ -74,4 +76,67 @@ void test_char()
 	
 	
 	printf("\n----- END TEST CHAR -----\n");
+}
+
+void test_str()
+{
+	int ret_og;
+	int ret_copy;
+	int test_number = 0;
+	char *str;
+	printf("\n----- TEST STR -----\n");
+
+	// normal strs
+	ret_og = printf("%s\n", "'a'");
+	ret_copy = ft_printf("%s\n", "'a'");
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+	str = "Hola mundo :)";
+	ret_og = printf("%s\n", str);
+	ret_copy = ft_printf("%s\n", str);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// NULL as str
+	str = NULL;
+	ret_og = printf("null str %s\n", str);
+	ret_copy = ft_printf("null str %s\n", str);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// str with only a null char
+	str = "\0";
+	ret_og = printf("null char <%s>\n", str);
+	ret_copy = ft_printf("null char <%s>\n", str);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// empty str
+	str = "";
+	ret_og = printf("empty str <%s>\n", str);
+	ret_copy = ft_printf("empty str <%s>\n", str);
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	// multiple strs
+	ret_og = printf("%s%s%s%s%s\n", "multiple", " ", "strs", "\t", "concatenated");
+	ret_copy = ft_printf("%s%s%s%s%s\n", "multiple", " ", "strs", "\t", "concatenated");
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+
+	// multiple strs and NULL
+	ret_og = printf("%s%s%s%s%s\n", "multiple", NULL, "strs", "\t", "concatenated");
+	ret_copy = ft_printf("%s%s%s%s%s\n", "multiple", NULL, "strs", "\t", "concatenated");
+	if (ret_og != ret_copy)
+		printf("ERROR test %i [expected: %i actual: %i]\n\n", test_number, ret_og, ret_copy);
+	test_number++;
+	
+	printf("\n----- END TEST STR -----\n");
 }
